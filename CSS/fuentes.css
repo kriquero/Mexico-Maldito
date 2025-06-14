@@ -1,0 +1,26 @@
+.s{
+    font-size: 5em;
+    font-family: simbols;
+    display: inline;
+    background-color: #202020;
+}
+.s2{
+    font-size: 5em;
+    font-family: simbols2;
+    display: inline;
+    background-color: #202020;
+}
+.s3{
+    font-size: 5em;
+    font-family: simbols3;
+    display: inline;
+    background-color: #202020;
+}
+
+span{
+    
+    text-align: right;
+    float: right;
+    background-color: #202020;
+    font-size: 2em;
+}

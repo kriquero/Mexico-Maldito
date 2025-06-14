@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Generador de Personajes Sobrenaturales - Mundo de Tinieblas</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #eee;
+      font-family: 'Georgia', serif;
+      margin: 30px;
+      max-width: 900px;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input[type=text], textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      background: #1e1e1e;
+      border: 1px solid #444;
+      color: #eee;
+      font-size: 14px;
+      font-family: inherit;
+      border-radius: 4px;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #b30000;
+      color: white;
+      padding: 10px 22px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    #resultado {
+      white-space: pre-wrap;
+      background: #1e1e1e;
+      padding: 20px;
+      margin-top: 30px;
+      border: 1px solid #444;
+      font-family: monospace;
+      font-size: 13px;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    /* Colores por tipo */
+    .tipo-garou { background-color: #2c3e50; }
+    .tipo-mago { background-color: #34495e; }
+    .tipo-fae { background-color: #16a085; }
+    .tipo-wraith { background-color: #7f8c8d; }
+    .tipo-vampiro { background-color: #8e44ad; }
+    .tipo-otro { background-color: #d35400; }
+  </style>
+</head>
+<body>
+
+  <h1>Generador de Personajes Sobrenaturales</h1>
+
+  <form id="formulario">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" placeholder="Ej: Lucia Sánchez" />
+
+    <label for="tipo">Tipo de Criatura</label>
+    <select id="tipo" onchange="actualizarColor()">
+      <option value="garou">Garou (Hombre Lobo)</option>
+      <option value="mago">Mago (Tradición / Technocracia)</option>
+      <option value="fae">Fae (Changeling)</option>
+      <option value="wraith">Wraith (Espectro)</option>
+      <option value="vampiro">Vampiro</option>
+      <option value="otro">Otro (Cazador, Demonio, etc.)</option>
+    </select>
+
+    <label for="apariencia">Apariencia</label>
+    <textarea id="apariencia" placeholder="Describe la apariencia física y estilo..."></textarea>
+
+    <label for="edad">Edad (aparente / real si aplica)</label>
+    <input type="text" id="edad" placeholder="Ej: 27 años / 120 años" />
+
+    <label for="afiliacion">Afiliación / Tribu / Corte / Tradición</label>
+    <textarea id="afiliacion" placeholder="Ej: Camada de Fenris, Corte Seelie, Verbena"></textarea>
+
+    <label for="arquetipo">Arquetipo Narrativo</label>
+    <input type="text" id="arquetipo" placeholder="Ej: Mentor, Rival, Oráculo, Guerrero" />
+
+    <label for="motivacion">Motivaciones</label>
+    <textarea id="motivacion" placeholder="¿Qué mueve a este personaje?"></textarea>
+
+    <label for="comportamiento">Comportamiento Habitual</label>
+    <textarea id="comportamiento" placeholder="Ej: Reservado, violento, carismático..."></textarea>
+
+    <label for="poderes">Poderes / Habilidades Especiales</label>
+    <textarea id="poderes" placeholder="Disciplina, Don, Magia, Numina, etc."></textarea>
+
+    <label for="recursos">Recursos (objetos, contactos, armas)</label>
+    <textarea id="recursos" placeholder="Lo que tiene a mano para usar"></textarea>
+
+    <label for="debilidad">Debilidad o Precio</label>
+    <textarea id="debilidad" placeholder="Sus puntos débiles o cargas"></textarea>
+
+    <label for="historia">Historia / Detalle Oscuro</label>
+    <textarea id="historia" placeholder="Un secreto o detalle importante"></textarea>
+
+    <label for="imagen">URL Imagen del Personaje (opcional)</label>
+    <input type="text" id="imagen" placeholder="https://..." />
+
+    <button type="button" onclick="generarHTML()">Generar y Descargar Ficha</button>
+  </form>
+
+  <pre id="resultado"></pre>
+
+<script>
+  function actualizarColor() {
+    const tipo = document.getElementById('tipo').value;
+    const body = document.body;
+    body.className = '';
+    switch(tipo) {
+      case 'garou': body.classList.add('tipo-garou'); break;
+      case 'mago': body.classList.add('tipo-mago'); break;
+      case 'fae': body.classList.add('tipo-fae'); break;
+      case 'wraith': body.classList.add('tipo-wraith'); break;
+      case 'vampiro': body.classList.add('tipo-vampiro'); break;
+      case 'otro': body.classList.add('tipo-otro'); break;
+    }
+  }
+
+  function escapeHTML(str) {
+    if (!str) return '';
+    return str.replace(/[&<>"']/g, function(m) {
+      return ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[m];
+    });
+  }
+
+  function generarHTML() {
+    const nombre = escapeHTML(document.getElementById('nombre').value);
+    const tipo = document.getElementById('tipo').value;
+    const apariencia = escapeHTML(document.getElementById('apariencia').value);
+    const edad = escapeHTML(document.getElementById('edad').value);
+    const afiliacion = escapeHTML(document.getElementById('afiliacion').value);
+    const arquetipo = escapeHTML(document.getElementById('arquetipo').value);
+    const motivacion = escapeHTML(document.getElementById('motivacion').value);
+    const comportamiento = escapeHTML(document.getElementById('comportamiento').value);
+    const poderes = escapeHTML(document.getElementById('poderes').value);
+    const recursos = escapeHTML(document.getElementById('recursos').value);
+    const debilidad = escapeHTML(document.getElementById('debilidad').value);
+    const historia = escapeHTML(document.getElementById('historia').value);
+    const imagen = escapeHTML(document.getElementById('imagen').value);
+    const archivo = (nombre ? nombre.toLowerCase().replace(/ /g, '_') : 'personaje') + '.html';
+
+    const colores = {
+      garou: '#2c3e50',
+      mago: '#34495e',
+      fae: '#16a085',
+      wraith: '#7f8c8d',
+      vampiro: '#8e44ad',
+      otro: '#d35400'
+    };
+
+    const html = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>${nombre}</title>
+<style>
+  body {
+    background-color: ${colores[tipo]};
+    color: #eee;
+    font-family: 'Georgia', serif;
+    margin: 30px;
+    max-width: 900px;
+  }
+  h1 { margin-bottom: 0; }
+  img.encabezado {
+    max-width: 300px;
+    margin: 15px 0;
+    border-radius: 8px;
+  }
+  .seccion {
+    margin-top: 20px;
+  }
+  .seccion h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <h1>${nombre}</h1>
+  ${imagen ? `<img src="${imagen}" alt="Imagen de ${nombre}" class="encabezado">` : ''}
+  
+  <div class="seccion"><h2>Tipo de Criatura</h2><p>${tipo.charAt(0).toUpperCase() + tipo.slice(1)}</p></div>
+  <div class="seccion"><h2>Apariencia</h2><p>${apariencia}</p></div>
+  <div class="seccion"><h2>Edad</h2><p>${edad}</p></div>
+  <div class="seccion"><h2>Afiliación</h2><p>${afiliacion}</p></div>
+  <div class="seccion"><h2>Arquetipo Narrativo</h2><p>${arquetipo}</p></div>
+  <div class="seccion"><h2>Motivaciones</h2><p>${motivacion}</p></div>
+  <div class="seccion"><h2>Comportamiento Habitual</h2><p>${comportamiento}</p></div>
+  <div class="seccion"><h2>Poderes / Habilidades Especiales</h2><p>${poderes}</p></div>
+  <div class="seccion"><h2>Recursos</h2><p>${recursos}</p></div>
+  <div class="seccion"><h2>Debilidad o Precio</h2><p>${debilidad}</p></div>
+  <div class="seccion"><h2>Historia / Detalle Oscuro</h2><p>${historia}</p></div>
+
+</body>
+</html>`.trim();
+
+    // Mostrar en pantalla el html generado
+    document.getElementById('resultado').textContent = html;
+
+    // Descargar archivo
+    const blob = new Blob([html], {type: 'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = archivo;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // Inicial color
+  actualizarColor();
+</script>
+
+</body>
+</html>

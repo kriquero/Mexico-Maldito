@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'vtm';
+    src: url('../Fuentes/percolator-expert.ttf');
+}
+
+@font-face {
+    font-family: 'simbols';
+    src: url('../Fuentes/WOD_____.TTF');
+}
+@font-face {
+    font-family: 'simbols2';
+    src: url('../Fuentes/WOD2____.TTF');
+}
+@font-face {
+    font-family: 'simbols3';
+    src: url('../Fuentes/WOD3____.TTF');
+}
+
+*{
+    background-color: rgb(59, 59, 59);
+    
+}
+body{
+    max-width: 60vw;
+    margin: auto;
+    color: white;
+    margin-bottom: 300px;
+    
+}
+h1{
+    font-family: vtm;
+    font-size: 5em;
+    text-align: center;
+    
+}
+p{
+    font-size: 1.5em;
+    display: inline;
+    
+}
+
+h2{
+    font-size: 2em;
+}
+
+.s{
+    font-size: 1em;
+    font-family: simbols;
+    display: inline;
+    background-color: #202020;
+}
+.s2{
+    font-size: 1em;
+    font-family: simbols2;
+    display: inline;
+    background-color: #202020;
+}
+.s3{
+    font-size: 1em;
+    font-family: simbols3;
+    display: inline;
+    background-color: #202020;
+}
+
+.menu_container{
+ background-color: #202020;
+ width: 100%;
+ height: 50px;
+}
+
+.menu_element{
+    background-color: #202020;
+    float: left;
+    width: 20%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5em; 
+    color: white;
+}
+
+.element{
+    background-color: #202020;
+    width: 20%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5em; 
+    color: white;
+}
+
+a{
+    background-color: #202020;
+    color: white;
+    font-size: 1em; 
+    text-decoration: none;
+}
+
+.margen{
+    margin: 15px;
+}
+
+
+pre{
+    float:right;
+    width: 100%;
+    font-size: 1.5em;
+    display: inline;
+}
+
+img.retrato{
+    width: 100%;
+}
+
+.musica{
+    height: 125px;
+    width: 30%;
+    margin:1%;
+}
+audio{
+    background-color: #202020;
+}
+.cancion{
+    background-color: #202020;
+}
+
+#si{
+    font-size: 4em;
+}
+
+.seccion{
+    background-color: #202020;
+    padding: 10px;
+    margin: 15px;
+}
+.seccion>p{
+    background-color: #202020;
+}
+.seccion>h2{
+    color: red;
+    background-color: #202020;
+}
+table{
+    width: 75%;
+}
+td{
+    width: 30%;
+}
+td span{
+    float: right;
+}
+.EspaciadoMagico{
+    width: 50px;
+}

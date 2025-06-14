@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>Auspex</title>
+    <link rel="stylesheet" href="../../CSS/main.css">
+</head>
+<body>
+    <div id="menuContainer"></div>
+    
+
+    <h1>Auspex</h1>
+
+    <p>
+
+
+        
+        <h2>N1 Sentidos Aguzados</h2>
+        Aumenta la capacidad de los sentidos
+        
+        <br>
+         SIST: Automático disminuye la dificultad en las tiradas de percepción según el criterio del narrador
+        
+        <h2>N2 Percepción del Aura</h2>
+        Permite ver el aura de otros seres cuyos colores indican su estado de ánimo, humor, identidad... 
+        <br>
+         SIST: Percepción + Empatía DIF 8 <br>
+            1 éxito Puede distinguirse la sombra (pálida o brillante) <br>
+            2 éxitos Puede distinguirse el color <br>
+            3 éxitos Pueden reconocerse dibujos <br>
+            4 éxitos Pueden detectarse variaciones <br>
+            5 éxitos Pueden identificarse mezclas de colores y pautas <br> <br>
+            <pre>
+
+            
+        ESTADO	                                                        COLOR 
+
+        Agresivo--------------------------------------------------------Morado
+
+        Asustado--------------------------------------------------------Naranja
+
+        Compasivo-------------------------------------------------------Rosa
+
+        Confuso---------------------------------------------------------Colores cambiantes y jaspeados
+
+        Conservador-----------------------------------------------------Lavanda
+
+        Deprimido-------------------------------------------------------Gris
+
+        Desconfiado-----------------------------------------------------Verde claro
+
+        Deseoso/Lujurioso-----------------------------------------------Rojo intenso
+
+        Diabolista------------------------------------------------------Vetas negras
+
+        Emocionado------------------------------------------------------Violeta
+
+        Enamorado-------------------------------------------------------Azul
+
+        Enfadado--------------------------------------------------------Rojo
+
+        Ensoñador-------------------------------------------------------Colores vivos y parpadeantes
+
+        Envidioso-------------------------------------------------------Verde oscuro
+
+        Espiritual------------------------------------------------------Dorado
+
+        Feliz-----------------------------------------------------------Bermellón
+
+        Frenético-------------------------------------------------------Colores ondulantes
+
+        Furioso---------------------------------------------------------Carmesí
+
+        Generoso--------------------------------------------------------Rosa claro
+
+        Idealista-------------------------------------------------------Amarillo
+
+        Inocente--------------------------------------------------------Blanco
+
+        Lupino/Garou----------------------------------------------------Colores resplandecientes
+
+        Obsesionado-----------------------------------------------------Verde
+
+        Odio------------------------------------------------------------Negro
+
+        Psicótico-------------------------------------------------------Colores hipnóticos en remolino
+
+        Resentido-------------------------------------------------------Marrón
+
+        Suspicaz--------------------------------------------------------Azul oscuro
+
+        Tranquilo-------------------------------------------------------Azul claro
+
+        Triste----------------------------------------------------------Plateado
+
+        Uso de magia/Mago-----------------------------------------------Miles de chispas
+
+        Vampiro---------------------------------------------------------El color correspondiente pero en pálido 
+    </pre>
+        <h2>N3 Toque del Espíritu</h2>
+        Permite obtener impresiones a partir de un objeto.
+        
+        <br>
+         SIST: Percepción + Empatía DIF antigüedad de la impresión
+        
+        <h2>N4 Telepatía</h2>
+        Permite sondear los pensamientos superficiales de un sujeto cercano y escucharlo como quien escucha hablar.
+        
+        <br>
+         SIST: Inteligencia + Subterfugio DIF FV del blanco	si se hace en vampiros gastar 1 FV
+
+        <h2>N5 Proyección Psíquica</h2>
+        Este poder separa la mente del cuerpo permitiendo al yo astral viajar a cualquier parte.
+        
+        <br>
+         SIST: Percepción + Ocultismo DIF depende del lugar. El cuerpo queda inerte mientras se usa.
+        
+        <h2>N6 Clarividencia</h2>
+        El personaje puede ver y oír sucesos a distancia sin Proyección Psíquica. 
+        <br>
+         SIST: Percepción + Empatía DIF 6
+        Visión Lejana 
+        <br>
+         SIST: Percepción + Empatía DIF 6 (8 si se ha visitado con Proyección Psíquica)
+        
+        <h2>N6 Comunicación Telepática</h2>
+        Permite leer la mente de un sujeto, conversar telepáticamente y transmitir imágenes, emociones y señales a cualquier persona que esté en el campo de visión.
+        
+        <br>
+         SIST: Carisma + Empatía DIF FV del blanco  Si el blanco es favorable puede renunciar a la tirada
+        
+        <h2>N6 •Descifrar</h2>
+        Permite entender cualquier escrito, ya sea en un idioma no conocido o escrito en código.
+        
+        <br>
+         SIST: Gastar 1 de Sangre Inteligencia + Lingüística DIF 6 Cada éxito permite leer un determinado idioma o descifrar un código específico y dura 1 escena. No funciona con idiomas o códigos de naturaleza sobrenatural como el Bable de los Malkavian o las runas taumatúrgicas. Para encriptados sobrenaturales se compara el Auspex con la Disciplina más relevante al usar el poder de encriptado, si el Auspex es mayor puede leerse, si es igual o mayor no se puede.
+        
+        <h2>N6 Desolladura (Sólo Tzimisce)</h2>
+        Permite ponerse la piel de alguien desollado para conseguir el parecido perfecto.
+        
+        <br>
+         SIST: Usar 1º Vicisitud (y puede que un cuchillo afilado) para desollar a la víctima, después se injerta en la suya creando un duplicado perfecto sin tiradas, se puede mantener indefinidamente y una vez descartada se desprende la piel aunque se pueden recrear un Nº de formas asumidas = a la Inteligencia o infinitas si se posee Memoria Eidética (Mérito) se tardan 5min. Destreza + Alteración Corporal DIF 6
+        
+        <h2>N6 •Discernir el Aura</h2>
+        Permite ver a todos a los que tengan una característica en el aura.
+        
+        <br>
+         SIST: Percepción + Empatía DIF 8 y gastar 1 de sangre si se desea. Nº éxitos = Nº de sujetos que tengan un color o característica específica en el aura que identifica (o 10 + éxitos personas si gastó el punto de sangre). El poder dura hasta final de la escena. Este poder solo identifica 1 característica o color cada vez por ej. para identificar a los vampiros (aura pálida) y que están enfadados (color rojo) hay que usar dos veces el poder.
+        
+        <h2>N6 Genius Loci (Sólo Tzimisce)</h2>
+        Aumenta la afinidad con la tierra permitiendo canalizar el “espíritu” o “ambiente” de un lugar concreto y de esta forma tener conocimiento de situaciones relacionadas con su naturaleza.
+        
+        <br>
+         SIST: Meditar en el lugar (debe simbolizar una fuerza concreta o haber sido escenario de pasiones o traumas) durante 1h. Percepción + Empatía DIF 8. Cada éxito proporciona una comprensión + clara y definida. El Narrador determina sus efectos juiciosamente. Ej. hacerlo en unas ruinas puede recibir avisos o conocimientos de catástrofes inminentes.
+        
+        <h2>N6 Lazo Espiritual</h2>
+        Establece un vínculo mental con una persona u objeto que dura 10 años.
+        
+        <br>
+         SIST: Tocarla/o físicamente gastar 1 de Sangre Percepción + Empatía DIF 8 una vez establecido Percepción + Empatía DIF 6 revela su situación geográfica (no da información local o a pequeña escala)
+        
+        <h2>N6 •The Mind Revealed</h2>
+        Permite leer la mente del blanco, a diferencia del N4, puede profundizar y leer completamente la mente. No es necesario conocer la lengua del blanco.
+        
+        <br>
+         SIST: En mortales y Ghouls requiere concentrarse durante 1 turno. En vampiros gastar 1 de FV y Percepción + Empatía DIF FV del blanco. Dura 1 escena y sólo afecta a 1 blanco, que tendrá DIF +3 a todas las tiradas de Subterfugio contra el vampiro. El vampiro gana 3 dados adicionales para seducirlo o convencerlo y tiene DIF -1 para impactar en el blanco y acciones defensivas. Hay que concentrarse en el blanco, todas las acciones no relacionadas con él DIF +3 (ej. esquivar a otro enemigo).
+        
+        <h2>N6 Predicción</h2>
+        Permite predecir lo que la gente va a decir y a veces hacer
+        
+        <br>
+         SIST: Percepción + Empatía gastando 1 de Sangre DIF FV del blanco <br>
+            1 éxito	Sabes lo que va a decir el blanco <br>
+            2 éxitos	1 dado + a todas las tiradas sociales contra el blanco <br>
+            3 éxitos	2 dados + a todas las tiradas sociales contra el blanco <br>
+            3 éxitos	- 1 dado a cualquier acción contra el personaje <br>
+            4 éxitos	- 2 dados a cualquier acción contra el personaje <br>
+            5 éxitos	- 3 dados a cualquier acción contra el personaje
+        
+        <h2>N6 Predicción Astrológica (Sólo Assamita)</h2>
+        Permite obtener datos del futuro de alguien. Para usarlo es necesario tener el Conocimiento Astronomia 
+        <br>
+         SIST: para mortales saber fecha y lugar de nacimiento y para vampiro fecha de abrazo también, si no se conoce puede deducirlo tras unas pocas décadas. Para una organización/grupo es necesario fecha que sirva de punto de origen y tanta información como se pueda recabar y realizar con esos datos un horóscopo. Tras saber esto pasar 1h mirando los cielos Percepción + Ocultismo DIF 9 cada éxito se adivina 1 hecho acerca del futuro más probable del blanco. Si se busca respuesta a algo en concreto es DIF 9. Pero los éxitos no dan marco temporal, se puede ver conocer hechos de la próxima noche, semana año… Los fracasos dan información falsa.
+        
+        <h2>N6 Sentir Emoción</h2>
+        Permite leer el aura sobre un radio de 3m pudiendo percibir el aura de un grupo (estando dentro del radio de acción) haciéndote una idea de la dirección, acciones que realizara y identificar el nexo con el líder.
+        
+        <br>
+         SIST: Percepción + Empatía DIF 7
+        
+        <h2>N6 El Sueño</h2>
+        Permite permanecer consciente de los sucesos que se producen a su alrededor mientras este dormido o en letargo por medio de sueños.
+        
+        <br>
+         SIST: Automático / Astucia + Empatía DIF 7  según el criterio del narrador
+        
+        <h2>N6 Vista de Águila</h2>
+        Permite barrer mentalmente un área como si se estuviera volando, permitiendo efectuar búsquedas rápidas o contemplar zonas muy grandes. Si se posee Clarividencia se puede hacer zoom.
+        
+        <br>
+         SIST: Automático 20km2 altitud 75m no se puede mirar a través de objetos sólidos
+        
+        <h2>N7 Buscar Alma</h2>
+        Permite descubrir la situación de cualquier persona que conozca. 
+        <br>
+         SIST: Percepción + Investigación DIF 6 / 8 si posee ofuscación.
+        
+        <h2>N7 Conciencia Sobrenatural (Sólo Assamita)</h2>
+        Da información sobre el blanco.
+        
+        <br>
+         SIST: Automático pero debe haberse hecho previamente un horóscopo del objetivo. Da toda la información que se pueda obtener mediante la vista o el oído, si pudiese ver y oír todo lo que ha ocurrido al objetivo. No proporciona pensamientos, motivaciones ni explicaciones, sólo observación y sólo aplicable al presente o pasado del blanco nunca del futuro. Cuando se usa sobre un ser sobrenatural se tira Percepción + Alerta DIF FV + Generación (trasfondo) si sube por encima de 10 el objetivo es “invisible” a este poder. Usar el rasgo adecuado según el tipo de blanco sobrenatural en lugar de Generación (mago = areté, cambia formas = rango…) Si se fracasa no se puede obtener información en 1 año
+        
+        <h2>N7 Concurrencia Anímica (Sólo Assamita)</h2>
+        Permite utilizar Proyección Espiritual N5 Auspex junto con varias personas.
+        
+        <br>
+         SIST: Igual que Proyección Psíquica pero gastando 1 de Sangre x cada persona que vaya a viajar. Los viajeros no pueden separarse más de 30m del que utiliza el poder y sus cuerpos quedan bajo las mismas condiciones que cuando se usa Proyección Psíquica. Los viajeros deben tocar al poseedor del poder o a algún otro que este en contacto con él. Si se separa el contacto físico el alma vuelve a su cuerpo y pierde 8 – Astucia puntos de FV, si la FV queda a 0 queda inconsciente hasta el siguiente anochecer.
+        
+        <h2>N7 Enlace Espiritual</h2>
+        Permite entablar comunicación telepática con varias personas, las personas que queden conectadas podrán comunicarse entre sí.
+        
+        <br>
+         SIST: Astucia + Etiqueta DIF 6 cada éxito permite la comunicación con una persona.
+        
+        <h2>N7 Éxtasis Agónico (Sólo Tzimisce)</h2>
+        Transforma el dolor en placer
+        
+        <br>
+         SIST: Automático transforma los penalizadores x herida en bonificadores, el nivel de Incapacitado no varía y si la perdida de niveles conlleva la pérdida de una extremidad no podrá llevar a cabo acciones que requieran su uso.
+        
+        <h2>N7 •Éxtasis Agónico</h2>
+        Transforma el dolor en placer
+        
+        <br>
+         SIST: Gastar 1 de FV dura 1 escena o hasta que quede incapacitado. Letargo y Muerte definitiva se tratan de forma normal. A discreción del Narrador la sensación es tan adictiva que no quiere curarse a no ser que pase FV DIF 6
+        
+        <h2>N7 Imagen en un Espejo</h2>
+        Parecido a Predicción N6 pero intercepta los reflejos físicos.
+        
+        <br>
+         SIST: Gasta 1 de Sangre Percepción + Habilidad de combate que utiliza el objetivo DIF Manipulación del enemigo + Habilidad de combate que use  se pierde 1 turno de combate en utilizar este poder, cada éxito
+        = 1 dado + a la reserva de combate, el alcance máx. del poder = FV en m del jugador.
+        
+        <h2>N7 Robar el Ojo Mental</h2>
+        Permite extender los sentidos a otro objetivo viendo y oyendo como si estuviera en su lugar. 
+        <br>
+         SIST: Ver al objetivo Percepción + Subterfugio DIF FV del blanco, si se presta voluntario DIF –2 Sólo se pueden utilizar las disciplinas de la tabla mientras se utiliza este poder <br>
+            1 éxito	No se pueden usar disciplinas <br>
+            2 éxitos	Otros poderes de Auspex <br>
+            3 éxitos	También se puede usar Presencia <br>
+            4 éxitos	También se puede usar Dominación y Dementación <br>
+            5 éxitos	También se puede usar Quimerismo y Taumaturgia
+        
+            <h2>N7 Recoger el Secreto</h2>
+        Pronunciando una palabra, el blanco dirá todo lo que sabe del tema, estas revelaciones pueden ser mentales si se desea que no se escuchen.
+        
+        <br>
+         SIST: Ver al blanco gastar 1 de Sangre Carisma + Empatía/ Intimidación DIF FV <br>
+            1 éxito	Pensamientos confusos y aleatorios. Tema de 1 palabra <br>
+            2 éxitos	Conceptos simples. Tema de 2 palabras <br>
+            3 éxitos	Ideas claras, pero sencillos. Tema de 1 frase simple <br>
+            4 éxitos	Ideas complejas presentadas con sencillez. Concepto simple con supuestos condicionales <br>
+            5 éxitos	Revelación estructurada y exhaustiva. Temas de gran complejidad
+        
+        <h2>N7 Visión Kármica</h2>
+        Permite una visión del alma del objetivo.
+        
+        <br>
+         SIST: Percepción + Empatía DIF FV del personaje <br>
+            1 éxito Como 5 éxitos en una tirada de Percepción del Aura N2 <br>
+            2 éxitos Naturaleza, Conducta y Humanidad / Senda <br>
+            3 éxitos Influencias sobre la mente (Dominación, Pacto demoníaco) <br>
+            4 éxitos Puntuaciones de FV, Humanidad / Senda y Virtudes <br>
+            5 éxitos Estado del Karma, dato abstracto a criterio del Narrador, identifica Méritos y Defectos relacionados con su destino revela equilibrio entre acciones buenas o malas, se pueden tener visiones de 1 o + incidentes que cambiaron su destino
+        Fracaso Se sufre un Trastorno Mental o un Defecto Psicológico/ Mental/ Sobrenatural durante 1 noche
+
+        <h2>N8 •Carnage of the Mind</h2>
+        Permite atacar la psique de una persona con la propia con devastadoras consecuencias. Este N es una versión de Asalto Psíquico de 2ªed.
+        
+        <br>
+         SIST: Gastar 3 de sangre Manipulación + Intimidación DIF 6 y el blanco resiste con FV DIF 6. Si es un ser sobrenatural hay que gastar 1 de FV. <br>
+        Pifia	Inmune a este poder durante 1 mes <br>
+        Fallo	Blanco se da cuenta de que se ha realizado el ataque psíquico <br>
+            1 éxito	Blanco se asusta pero no recibe daño pierde 1 de FV. <br>
+            2 éxitos	Blanco muy asustado – 3 FV tira Coraje DIF 6 o Rötschreck <br>
+            3 éxitos	Blanco –6 FV tira Coraje DIF 6 o Rötschreck. Si FV = 0 pierde 1 de FV permanente y recibe 3 de daño letal absorbible normalmente <br>
+            4 éxitos	Blanco – toda FV y pierde la mitad de su FV permanente y recibe 4 niveles letales absorbibles normalmente <br>
+            5 éxitos	Blanco tirada FV DIF 7 o muerte/letargo si se supera tratar como 4 éxitos <br>
+        Si pierde toda su FV cae inconsciente durante el resto de la noche además de los efectos descritos
+        
+        <h2>N8 Asalto Psíquico</h2>
+        Permite abrirse camino a la fuerza dentro de la mente de un sujeto.
+        
+        <br>
+         SIST: Manipulación + Intimidación DIF 8 + para vampiros gastar 1 FV <br>
+        Fallo	Blanco puede hacer tirada Percepción + Intimidación DIF 6 para darse cuenta de que se ha realizado el ataque psíquico <br>
+            1 éxito Blanco se asusta pero no recibe daño pierde 1 de FV. Si FV = 0 el blanco queda inconsciente <br>
+            2 éxitos Blanco muy asustado – 3 FV debe tirar coraje DIF Auspex agresor si FV = 0 inconsciente <br>
+            3 éxitos Blanco –6 FV debe tirar coraje DIF Auspex agresor si FV = 0 inconsciente + trastorno mental <br>
+            4 éxitos Blanco – toda FV inconsciente + trastorno mental	pierde FV ½ permanente <br>
+            5 éxitos Blanco tirada FV DIF 7 o muerte si se supera tratar como 4 éxitos <br>
+        Si pierde toda su FV cae inconsciente durante el resto de la noche además de los efectos descritos
+        
+        <h2>N8 Omnisciencia</h2>
+        El personaje adquiere una comprensión absoluta de cuantos le rodean.
+        
+        <br>
+         SIST: Percepción + Empatía DIF 6 cualquiera con Ofuscación a un nivel = o + es inmune
+        
+        <h2>N8 La Visión del Oráculo</h2>
+        Permite saber los deseos sencillos y pensamientos superficiales de todos los que le rodean.
+        
+        <br>
+         SIST: Astucia + Liderazgo DIF 6 1 éxito = Asimila 1 pensamiento/ imagen clara. Si fracasa Trastorno Mental temporal (a discreción del Narrador) Si es Malkavian DIF 5 y los fracasos = fallos
+        
+        <h2>N9 Falso Reposo</h2>
+        Permite realizar Proyección Psíquica N5 mientras se está en Letargo.
+        
+        <br>
+         SIST: Automático, activo en cuanto esta aletargado, se proyecta el yo astral, se piensa y se perciben los acontecimientos de forma normal, los viajes astrales se rigen x las reglas de Proyección Astral
+        
+        <h2>N9 Precognición</h2>
+        Permite ver a través del tiempo y del espacio, lo que sucedió de forma difusa o lo que ocurrirá en un futuro si no cambia ninguna de las situaciones actuales, no permite ver el futuro se trata de una aproximación
+        
+        <br>
+         SIST: Inteligencia + Alerta DIF 8 <br>
+            1 éxito 1h <br>
+            2 éxitos 1 día <br>
+            3 éxitos 1 semana <br>
+            4 éxitos 1 mes <br>
+            5 éxitos 1 año
+        
+            <h2>N9 Señor del Dominio (Sólo Tzimisce)</h2>
+        Permite al Vampiro controlar eficazmente su reino
+        
+        <br>
+         SIST: Se escoge el área (no más de 15km de radio) y en esa zona obtiene DIF –1 en tiradas de Animalismo, Dominación, Presencia, Hechicería Koldúnica del Tzimisce, puede controlar el clima y fenómenos atmosféricos del lugar Inteligencia + Sabiduría Popular DIF 6-10, puede alterar la topografía ligeramente y detectar la localización de intrusos en el territorio DIF 7 pero sufre la debilidad del clan si abandona el feudo y si su reserva queda por debajo de 1 muere.
+        
+        <h2>N9 •La Visión del Oráculo</h2>
+        Otorga visiones sobre el pasado presente y futuro (Aunque tengan el mismo nombre no es el N8)
+        
+        <br>
+         SIST: Automático, se considera que siempre está activo, se ganan los beneficios de Sentidos Aguzados (N1) pero no sufre la sobrecarga sensorial. Está alerta sobre todo lo que sucede a su alrededor, no le afecta la Ofuscación o poderes similares. Se pueden tener visiones de los sucesos y cosas importantes que tengan relación con el vampiro, gana visiones espontáneas de los problemas que puede tener, puede escuchar los pensamientos de los que están cerca, puede terminar frases de otros y contestar a preguntas que todavía no se han formulado. Los efectos exactos de este poder quedan a decisión del Narrador pero a efectos prácticos es imposible sorprender al vampiro de ninguna manera. Para el Narrador este poder es una dar a un importante personaje información que sería imposible de conocer
+        
+        <h2>N10 El pulso de la Canalla</h2>
+        Se trata de una versión + potente del poder de Precognición, te permite percibir lo que sucederá en cierto momento o lugar, también permite sentir quien controla a los mortales
+        
+        <br>
+         SIST: tirada de Humanidad DIF 6 organización	7 ciudad	8 Región	9 País	10 El mundo entero <br>
+            1 éxito Percibes el humor y la actitud de los mortales <br>
+            2 éxitos Percibes además el futuro y el potencial de los mortales <br>
+            3 éxitos Conoces hasta que punto están controlados los mortales <br>
+            4 éxitos Percibes el aura del ser seres que los controlan <br>
+            5 éxitos Sabes quien los controla y por qué
+
+        
+
+        <h2>N Especial Aroma de Cain</h2>
+        Poseer Auspex 2 Taumaturgia 1 al coste de 14 de experiencia Permite identificar seres que porten vitae en sus venas <br>
+        
+        <br>
+         SIST: Automático, el Narrador siempre que se hacerque un portador de vitae se acerque tira Percepción + Ocultismo DIF 6 vampiros 8 Ghouls (aunque el Narrador puede variar la DIF según las circunstancias (estar distraído, sangre poderosa…). Si tiene éxito el vampiro se dará cuenta de que hay un portador pero son necesarios 3 éxitos para identificar la diraccion o la fuente
+        
+        <h2>N Especial Beber de la Mente</h2>
+        Poseer Auspex 4 y Extinción 5 /Taumaturgia (Rego Vitae) 5 al coste de 35 <br>
+        Aumenta los efectos de la diablerie. Tanto con Extinción como con Taumaturgia es lo mismo
+        
+        <br>
+         SIST: Cuando se haga una diablerie gastar tanta FV como Inteligencia el diaboliazado y FV DIF FV del blanco y +1 x Trastorno que tenga. Cada éxito da 1pt gratuito para gastar en Técnicas y Conocimientos, pero estos pt no pueden incrementar la habilidad x encima de lo que supiese el diabolizado. Si se pifia la tirada se pierde 1 de FV x pifia obtenida.
+
+        <h2>N Especial •Deseo del Corazón (Sólo Ravnos)</h2>
+        Poseer Auspex 4 Quimerismo 2 al coste de 20 de experiencia. <br>
+        Permite crear una imagen del mayor deseo del blanco. Esta imagen se manifiesta en forma de objeto material. Ej. Si el mayor deseo es el amor de una persona, vería una carta de su amor. La mayoría de las personas harán lo que sea para conseguirlo dando influencia al Ravnos sobre ellas. Aunque esta ilusión no convence automáticamente al blanco. Este poder da una gran ventaja sobre el blanco nada más.
+        
+        <br>
+         SIST: Gastar 1 de Sangre y 1 de FV Inteligencia + Subterfugio DIF FV del blanco siendo necesarios 3 éxitos para crear el objeto de deseo, una vez hecho para recrear el objeto sólo hay que gastar 1 de sangre y 1 de FV no siendo necesario la tirada.
+        
+        <h2>N Especial Instintos Acelerados</h2>
+        Poseer Auspex 2 Celeridad 2 al coste de 14 de experiencia <br>
+        Hace que el cuerpo del vampiro reaccione solo a ataques sorpresa
+        
+        <br>
+         SIST: Automático, siempre que no logre darse cuenta de forma natural de un ataque inminente se gasta 1 de sangre activando el poder. Que le permite defenderse como si lo viera venir sin penalización ninguna. Además es posible gastar más sangre adicional para tener activar Celeridad en ese turno pero estas acciones extras sólo podrán ser usadas con fines defensivos
+      
+        <h2>N Especial •Measure the Hill</h2>
+        Auspex 2 Dominación 2 al coste de 14 Permite conocer algunos rasgos del blanco.
+        
+        <br>
+         SIST: Percepción + Intimidación DIF 6 contra FV del blanco a DIF 6. El blanco no nota nada salvo que el invocador pifie. Si éxito puede conocer 1 de los siguientes rasgos: FV permanente, FV temporal, 1 Virtud. Se puede repetir tantas veces se deseen. Sólo es necesario ver al blanco para hacer el poder
+
+        <h2>N Especial Vigilia del Guardián</h2>
+        Poseer Auspex 1 Celeridad 1 Fortaleza 1 al coste de 7 de experiencia Impide ser sorprendido <br>
+        
+        <br>
+         SIST: Gastar 1 de sangre. Mientras dure la noche no se puede ser sorprendido siempre y cuando no se mueva de la localización donde invoco el poder más de unos pocos metros. Se gana la iniciativa durante 1 único turno si alguien le ataca o realiza un acto que pueda percibir o intentar detener. Los efectos sobrenaturales que enmascaren un posible atacante deben ser min superiores al N de Auspex para que tenga éxito. Todo intento de Sigilo falla automáticamente. Las acciones que se emprendan contra un personaje con el poder deben afectarle directa e inmediatamente para que sirva. Además sólo otorga sus beneficios 1 único turno antes de expirar y en un combate sólo tendría la iniciativa del 1er turno. Es posible usar el poder varias veces por noche, pero no se pueden acumular efectos
+       
+        
+        <h2>N Especial Visión Mística</h2>
+        Poseer Auspex 2 Taumaturgia 2 al coste de 14 de experiencia Permite ver las correintes de magis <br>
+        
+        <br>
+         SIST: Igual que Auspex N2 Percepción del Aura pero percibirá las corrientes de magia en lugar de ver los colores del alma.
+            1 éxito determina si algo /alguien posee magia o se encuentrabajo algún hechizo
+            2 éxitos informan si la magia es interna o proviene de una fuente externa
+            3 éxitos da conocimiento sobre las propiedades misticas tales como si el hechizo es beneficiono o dañino, si existe algún tipo de ilusión en marcha…
+            4 éxitos Dan información detallada como el tipo de magia emlpeada, aunque si el Taumaturgo no identificará el estilo si no lo conoce o ha visto previamente
+            5 éxitos abren la mente del vampiro a las corrientes de la magia permitiéndole ver las trazas de la magia y las líneas de poder que tenga al alcance del a visión.
+        Este poder puede usarse varias veces para acumular éxitos
+    </p>
+   
+
+    <script src="../../JS/menuWritter.js"></script>
+</body>
+</html>

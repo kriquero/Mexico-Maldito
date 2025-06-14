@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Lugares - Vampiro</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f2f2f2;
+      font-family: 'Georgia', serif;
+      margin: 40px;
+    }
+    input, textarea {
+      width: 100%;
+      background-color: #1e1e1e;
+      color: #f2f2f2;
+      border: 1px solid #444;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    button {
+      background-color: #b30000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    pre {
+      background-color: #1e1e1e;
+      padding: 20px;
+      white-space: pre-wrap;
+      margin-top: 20px;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Generador de Lugares – Vampiro</h1>
+
+  <form id="formulario">
+    <label>Nombre del Lugar</label>
+    <input type="text" id="nombre">
+
+    <label>Nombre del Archivo (sin espacios, terminar en .html)</label>
+    <input type="text" id="archivo" placeholder="ej: catedral_abaddon.html">
+
+    <label>URL de la Imagen del Lugar</label>
+    <input type="text" id="imagen" placeholder="https://...jpg">
+
+    <label>Tipo de Lugar</label>
+    <input type="text" id="tipo">
+
+    <label>Ubicación</label>
+    <input type="text" id="ubicacion">
+
+    <label>Descripción Exterior</label>
+    <textarea id="exterior"></textarea>
+
+    <label>Interior y Atmósfera</label>
+    <textarea id="interior"></textarea>
+
+    <label>Presencias Habituales (usa etiquetas &lt;a&gt; si quieres hipervínculos)</label>
+    <textarea id="habituales"></textarea>
+
+    <label>Función del Lugar</label>
+    <textarea id="funcion"></textarea>
+
+    <label>Afiliación Política / Clan</label>
+    <textarea id="politica"></textarea>
+
+    <label>Secretos o Historia Oculta</label>
+    <textarea id="secretos"></textarea>
+
+    <label>Notas o Ganchos Narrativos</label>
+    <textarea id="extras"></textarea>
+
+    <button type="button" onclick="generarHTML()">Generar y Descargar</button>
+  </form>
+
+  <pre id="resultado"></pre>
+
+  <script>
+    function generarHTML() {
+      const nombre = document.getElementById("nombre").value;
+      const archivo = document.getElementById("archivo").value || "lugar.html";
+      const imagen = document.getElementById("imagen").value;
+      const tipo = document.getElementById("tipo").value;
+      const ubicacion = document.getElementById("ubicacion").value;
+      const exterior = document.getElementById("exterior").value;
+      const interior = document.getElementById("interior").value;
+      const habituales = document.getElementById("habituales").value;
+      const funcion = document.getElementById("funcion").value;
+      const politica = document.getElementById("politica").value;
+      const secretos = document.getElementById("secretos").value;
+      const extras = document.getElementById("extras").value;
+
+      const html = `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>${nombre}</title>
+    <link rel="stylesheet" href="../../../CSS/main.css">
+</head>
+<body>
+
+  <div id="menuContainer"></div>
+
+  <h1>${nombre}</h1>
+  <a href="../../Listado_Localizaciones.html" style="padding: 15px;">Volver</a> <br> <br> <br> <br>
+  <div class="element margen " style="width: 40%;"> 
+                ${imagen ? `<img src="${imagen}" alt="Imagen del lugar" class="retrato">` : ''}
+            </div> 
+<br>
+  <div class="seccion">
+    <h2>Tipo de Lugar</h2>
+    <p>${tipo}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Ubicación</h2>
+    <p>${ubicacion}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Descripción Exterior</h2>
+    <p>${exterior}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Interior y Atmósfera</h2>
+    <p>${interior}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Habituales</h2>
+    <p>${habituales}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Función</h2>
+    <p>${funcion}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Afiliación y Política</h2>
+    <p>${politica}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Secretos</h2>
+    <p>${secretos}</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Extras / Ganchos Narrativos</h2>
+    <p>${extras}</p>
+  </div>
+
+ <script src="../../../JS/menuWritter.js"><\/script>
+</body>
+</html>
+      `.trim();
+
+      // Mostrar en pantalla
+      document.getElementById("resultado").textContent = html;
+
+      // Descargar
+      const blob = new Blob([html], { type: "text/html" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = archivo;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>

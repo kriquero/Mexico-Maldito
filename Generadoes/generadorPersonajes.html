@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Personajes - Vampiro</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f2f2f2;
+      font-family: 'Georgia', serif;
+      margin: 40px;
+    }
+    input, textarea {
+      width: 100%;
+      background-color: #1e1e1e;
+      color: #f2f2f2;
+      border: 1px solid #444;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    button {
+      background-color: #b30000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    pre {
+      background-color: #1e1e1e;
+      padding: 20px;
+      white-space: pre-wrap;
+      margin-top: 20px;
+      border: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Generador de Personajes – Vampiro</h1>
+
+  <form id="formulario">
+    <label>Nombre del Personaje</label>
+    <input type="text" id="nombre">
+
+    <label>Nombre del Archivo (terminar en .html)</label>
+    <input type="text" id="archivo" placeholder="ej: lucien_nocturno.html">
+
+    <label>URL de la Imagen del Personaje</label>
+    <input type="text" id="imagen" placeholder="https://...jpg">
+
+    <label>Clan</label>
+    <input type="text" id="clan">
+
+    <label>Generación</label>
+    <input type="text" id="generacion">
+
+    <label>Edad aparente / Edad real</label>
+    <input type="text" id="edad">
+
+    <label>Naturaleza / Conducta</label>
+    <input type="text" id="naturaleza">
+
+    <label>Descripción física / Atributos</label>
+    <textarea id="descripcion"></textarea>
+
+    <label>Trasfondo breve</label>
+    <textarea id="trasfondo"></textarea>
+
+    <label>Historia secreta (oculta al resto)</label>
+    <textarea id="secreto"></textarea>
+
+    <label>Relaciones importantes (usa &lt;a&gt; para hipervínculos)</label>
+    <textarea id="relaciones"></textarea>
+
+    <label>Afiliación política o secta</label>
+    <input type="text" id="afiliacion">
+
+    <label>Disciplinas / Poderes clave</label>
+    <textarea id="poderes"></textarea>
+
+    <label>Notas del narrador / Ganchos</label>
+    <textarea id="extras"></textarea>
+
+    <button type="button" onclick="generarHTML()">Generar y Descargar</button>
+  </form>
+
+  <pre id="resultado"></pre>
+
+  <script>
+    function escapeHTML(str) {
+      return str.replace(/`/g, '\\`');
+    }
+
+    function generarHTML() {
+      const nombre = escapeHTML(document.getElementById("nombre").value);
+      const archivo = document.getElementById("archivo").value || "personaje.html";
+      const imagen = escapeHTML(document.getElementById("imagen").value);
+      const clan = escapeHTML(document.getElementById("clan").value);
+      const generacion = escapeHTML(document.getElementById("generacion").value);
+      const edad = escapeHTML(document.getElementById("edad").value);
+      const naturaleza = escapeHTML(document.getElementById("naturaleza").value);
+      const descripcion = escapeHTML(document.getElementById("descripcion").value);
+      const trasfondo = escapeHTML(document.getElementById("trasfondo").value);
+      const secreto = escapeHTML(document.getElementById("secreto").value);
+      const relaciones = escapeHTML(document.getElementById("relaciones").value);
+      const afiliacion = escapeHTML(document.getElementById("afiliacion").value);
+      const poderes = escapeHTML(document.getElementById("poderes").value);
+      const extras = escapeHTML(document.getElementById("extras").value);
+
+      const html = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>${nombre}</title>
+  <link rel="stylesheet" href="../../../CSS/main.css">
+</head>
+<body>
+
+  <div id="menuContainer"></div>
+
+  <h1>${nombre}</h1>
+  ${imagen ? `<div style="max-width: 300px;"><img src="${imagen}" alt="Imagen de ${nombre}" style="width: 100%; border-radius: 8px;"></div>` : ''}
+
+  <div class="seccion"><h2>Clan</h2><p>${clan}</p></div>
+  <div class="seccion"><h2>Generación</h2><p>${generacion}</p></div>
+  <div class="seccion"><h2>Edad</h2><p>${edad}</p></div>
+  <div class="seccion"><h2>Naturaleza / Conducta</h2><p>${naturaleza}</p></div>
+  <div class="seccion"><h2>Descripción</h2><p>${descripcion}</p></div>
+  <div class="seccion"><h2>Trasfondo</h2><p>${trasfondo}</p></div>
+  <div class="seccion"><h2>Historia secreta</h2><p>${secreto}</p></div>
+  <div class="seccion"><h2>Relaciones</h2><p>${relaciones}</p></div>
+  <div class="seccion"><h2>Afiliación política</h2><p>${afiliacion}</p></div>
+  <div class="seccion"><h2>Disciplinas / Poderes</h2><p>${poderes}</p></div>
+  <div class="seccion"><h2>Notas del narrador</h2><p>${extras}</p></div>
+
+  <script src="../JS/menuWritter.js"><\/script>
+</body>
+</html>`;
+
+      document.getElementById("resultado").textContent = html;
+
+      const blob = new Blob([html], { type: "text/html" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = archivo;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>

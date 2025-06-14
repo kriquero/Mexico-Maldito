@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Personajes - Vampiro</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f2f2f2;
+      font-family: 'Georgia', serif;
+      margin: 150px;
+    }
+    input, textarea, select {
+      width: 100%;
+      background-color: #1e1e1e;
+      color: #f2f2f2;
+      border: 1px solid #444;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    button {
+      background-color: #b30000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    pre {
+      background-color: #1e1e1e;
+      padding: 20px;
+      white-space: pre-wrap;
+      margin-top: 20px;
+      border: 1px solid #444;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Generador de Personajes – Vampiro</h1>
+
+<form id="formulario">
+  <label>Nombre del Personaje</label>
+  <input type="text" id="nombre">
+  <label>Nombre del Archivo (terminar en .html)</label>
+  <input type="text" id="archivo">
+  <label>URL de la Imagen del Personaje</label>
+  <input type="text" id="imagen">
+  <label>Clan</label><input type="text" id="clan">
+  <label>Generación</label><input type="text" id="generacion">
+  <label>Edad aparente / Edad real</label><input type="text" id="edad">
+  <label>Naturaleza / Conducta</label><input type="text" id="naturaleza">
+  <label>Descripción física</label><textarea id="descripcion"></textarea>
+  <label>Trasfondo breve</label><textarea id="trasfondo"></textarea>
+  <label>Historia secreta</label><textarea id="secreto"></textarea>
+  <label>Relaciones</label><textarea id="relaciones"></textarea>
+  <label>Afiliación política o secta</label><input type="text" id="afiliacion">
+  <label>Disciplinas / Poderes</label><textarea id="poderes"></textarea>
+  <label>Notas del narrador / Ganchos</label><textarea id="extras"></textarea>
+
+  <h3>Atributos</h3>
+  <div class="grid" id="atributos"></div>
+
+  <h3>Habilidades</h3>
+  <div class="grid" id="habilidades"></div>
+
+  <h3>Virtudes</h3>
+  <div class="grid" id="virtudes"></div>
+
+  <h3>Trasfondos</h3>
+  <div class="grid" id="trasfondos"></div>
+
+  <h3>Méritos y Defectos</h3>
+  <textarea id="meritos"></textarea>
+
+  <button type="button" onclick="generarHTML()">Generar y Descargar</button>
+</form>
+
+<pre id="resultado"></pre>
+
+<script>
+const atributos = ["Fuerza","Destreza","Resistencia","Carisma","Manipulación","Apariencia","Percepción","Inteligencia","Astucia"];
+const talentos = ["Alerta","Atletismo","Callejeo","Consciencia","Empatía","Expresión","Intimidación","Liderazgo","Pelea","Subterfugio"];
+const tecnicas = ["Armas de fuego","Artesanía","Conducir","Etiqueta","Interpretación","Pelea con armas","Sigilo","Supervivencia","Trato con animales"];
+const conocimientos = ["Academicismo","Ciencias","Finanzas","Informática","Leyes","Medicina","Ocultismo","Política","Tecnología"];
+const virtudes = ["Conciencia","Autocontrol","Coraje"];
+const trasfondos = ["Aliados","Contactos","Fama","Generación","Influencia","Mentor","Recursos","Refugio","Status"];
+
+function crearInputs(lista, contenedorId) {
+  const cont = document.getElementById(contenedorId);
+  lista.forEach(nombre => {
+    const id = nombre.replace(/\s/g, '_');
+    cont.innerHTML += `<label>${nombre}</label><input type="number" id="${id}" min="0" max="5">`;
+  });
+}
+
+crearInputs(atributos, "atributos");
+crearInputs(talentos.concat(tecnicas).concat(conocimientos), "habilidades");
+crearInputs(virtudes, "virtudes");
+crearInputs(trasfondos, "trasfondos");
+
+function puntos(n) {
+  n = parseInt(n) || 0;
+  return "●".repeat(n) + "○".repeat(5 - n);
+}
+
+function generarHTML() {
+  const get = id => document.getElementById(id).value;
+  const html = `<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>${get("nombre")}</title><style>body{background:#111;color:#eee;font-family:Georgia,serif;padding:20px;}table{width:100%;margin-bottom:20px;}td{padding:5px;border-bottom:1px solid #333;}img{max-width:200px;border-radius:8px;}</style></head>
+<body>
+<h1>${get("nombre")}</h1>
+${get("imagen") ? `<img src="${get("imagen")}">` : ""}
+<p><strong>Clan:</strong> ${get("clan")}<br>
+<strong>Generación:</strong> ${get("generacion")}<br>
+<strong>Edad:</strong> ${get("edad")}<br>
+<strong>Naturaleza / Conducta:</strong> ${get("naturaleza")}</p>
+<h2>Descripción</h2><p>${get("descripcion")}</p>
+<h2>Atributos</h2><table>${atributos.map(n => `<tr><td>${n}</td><td>${puntos(get(n.replace(/\s/g,'_')))}</td></tr>`).join('')}</table>
+<h2>Habilidades</h2><table>${talentos.concat(tecnicas).concat(conocimientos).map(n => `<tr><td>${n}</td><td>${puntos(get(n.replace(/\s/g,'_')))}</td></tr>`).join('')}</table>
+<h2>Virtudes</h2><table>${virtudes.map(n => `<tr><td>${n}</td><td>${puntos(get(n.replace(/\s/g,'_')))}</td></tr>`).join('')}</table>
+<h2>Trasfondos</h2><table>${trasfondos.map(n => `<tr><td>${n}</td><td>${puntos(get(n.replace(/\s/g,'_')))}</td></tr>`).join('')}</table>
+<h2>Méritos y Defectos</h2><p>${get("meritos")}</p>
+<h2>Trasfondo</h2><p>${get("trasfondo")}</p>
+<h2>Historia Secreta</h2><p>${get("secreto")}</p>
+<h2>Relaciones</h2><p>${get("relaciones")}</p>
+<h2>Afiliación política</h2><p>${get("afiliacion")}</p>
+<h2>Disciplinas / Poderes</h2><p>${get("poderes")}</p>
+<h2>Notas del narrador</h2><p>${get("extras")}</p>
+</body></html>`;
+
+  const blob = new Blob([html], { type: "text/html" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = get("archivo") || "personaje.html";
+  a.click();
+  URL.revokeObjectURL(url);
+  document.getElementById("resultado").textContent = html;
+}
+</script>
+
+</body>
+</html>
